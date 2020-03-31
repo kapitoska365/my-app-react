@@ -19,7 +19,88 @@ const Main = () => {
                         post 1
                     </div>
                     <div>
-                        post 2
+                        postgit config user.name 2
+                    </div>
+                </div>
+            </div> <div>
+                My posts
+                <div>
+                    New posts
+                </div>
+                <div>
+                    <div>
+                        post 1
+                    </div>
+                    <div>
+                        postgit config user.name 2
+                    </div>
+                </div>
+            </div> <div>
+                My posts
+                <div>
+                    New posts
+                </div>
+                <div>
+                    <div>
+                        post 1
+                    </div>
+                    <div>
+                        postgit config user.name 2
+                    </div>
+                </div>
+            </div> <div>
+                My posts
+                <div>
+                    New posts
+                </div>
+                <div>
+                    <div>
+                        post 1
+                    </div>
+                    <div>
+                        postgit config user.name 2
+                    </div>
+                </div>
+            </div> <div>
+                My posts
+                <div>
+                    New posts
+                </div>
+                <div>
+                    <div>
+                        post 1
+                    </div>
+                    <div>
+                        postgit config user.name 2
+                    </div>
+                </div>
+            </div> <div>
+                My posts
+                <div>
+                    New posts
+                </div>
+                <div>
+                    <div>
+                        post 1
+                    </div>
+                    <div>
+                        postgit config user.name 2
+                    </div>
+                </div>
+            </div> <div>
+                My posts
+                <div>
+                    New posts
+                </div>
+                <div>
+                    <div>
+                        post 1
+                    </div>
+                    <div>
+                        postgit config user.name 2
+                    </div>
+                    <div>
+                        postgit config user.name 2
                     </div>
                 </div>
             </div>
