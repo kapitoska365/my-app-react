@@ -1,0 +1,13 @@
+.items{
+    color: green;
+    margin-top: 20px;
+}
+
+.items img {
+    width: 25px;
+    height: 25px;
+}
+
+.like{
+    color: white;
+}

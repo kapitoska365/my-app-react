@@ -1,0 +1,44 @@
+.nav{
+    grid-area: navbar;
+    background-color: cornsilk;
+}
+
+.nav ul li{
+    list-style-type: none;
+    padding: 20px;
+}
+
+.nav ul li a{
+    text-decoration: none;
+    color: darkgrey;
+    font-family: "Droid Sans Mono Slashed";
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.nav ul li a:hover{
+    color: pink;
+}
+
+.nav ul li a.active{
+    color: black;
+}
+
+.nav ul{
+    padding: 10px 20px;
+}
+
+.span__friends{
+    padding: 5px;
+}
+
+.friends{
+    padding: 5px;
+}
+
+.img__avatar{
+    border-radius: 50px;
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+}

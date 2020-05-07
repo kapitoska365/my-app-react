@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+    position: fixed ;
+    width: 100%;
+    grid-area: head;
+    height: 42px;
+    background-color: #3b5998;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.header__logo{
+    margin-left: 30px;
+}
+
+
+
