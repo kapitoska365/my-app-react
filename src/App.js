@@ -9,6 +9,7 @@ import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
 import FriendsContainer from "./components/friends/FriendsContainer";
 import NavContainer from "./components/nav/NavContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 const App = () => {
@@ -28,6 +29,8 @@ const App = () => {
               <Route path="/music" component={Music}/>
 
               <Route path="/settings" component={Settings}/>
+
+              <Route path="/users" render={() => <UsersContainer />}/>
 
               <Route path="/friends" render={() => <FriendsContainer />}/>
           </div>

@@ -15,6 +15,7 @@ const Nav = (props) => {
                 <li className={style.nav__link}><NavLink to="/dialog" activeClassName={style.active}>Messages</NavLink></li>
                 <li className={style.nav__link}><NavLink to="/news" activeClassName={style.active}>News</NavLink></li>
                 <li className={style.nav__link}><NavLink to="/music" activeClassName={style.active}>Music</NavLink></li>
+                <li className={style.nav__link}><NavLink to="/users" activeClassName={style.active}>Users</NavLink></li>
 
                 <li className={style.nav__link + " " + style.nav__link_settings}><NavLink to="/settings" activeClassName={style.active}>Settings</NavLink></li>
 
