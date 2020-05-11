@@ -1,20 +1,28 @@
 import React from "react";
 import style from "./Users.module.css"
+import * as axios from "axios";
+import  sparePhoto from "./../../assets/images/sparePhoto.jpeg";
+
 
 let Users = (props) => {
 
-    if(props.users.length === 0){
-        props.setUsers( [
-            {id: 1, followed: true, fullName: "Trump", status: "I am good", location:{city: "Washington DC", country: "USA"}, avatar: "https://cdn.dribbble.com/users/1210339/screenshots/2909973/trump2_dribbble.jpg"},
-            {id: 2, followed: false, fullName: "Dodon", status: "Eu sunt glavniii", location:{city: "Chisinau", country: "Moldova"}, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSla7pOCzstVHKtrozQ3z1eCOZG458dVoae5DZOOgYQtDVnNY6q&usqp=CAU"},
-            {id: 3, followed: true, fullName: "Putin", status: "Azm esti cari", location:{city: "Moscow", country: "Russia"}, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQg0xts6ni7PLCTMn2aTeTBnlvrL1nbUSfg9Y_qNS2vW62at1rv&usqp=CAU"}
-        ])
-    }
+    axios.get("https://social-network.samuraijs.com/api/1.0/users").then( response => {
+        props.setUsers(response.data.items);
+    });
 
-    let users = props.users.map((users) => <div >
+    // if(props.users.length === 0){
+    //     props.setUsers( [
+    //         {id: 1, followed: true, fullName: "Trump", status: "I am good", location:{city: "Washington DC", country: "USA"}, avatar: "https://cdn.dribbble.com/users/1210339/screenshots/2909973/trump2_dribbble.jpg"},
+    //         {id: 2, followed: false, fullName: "Dodon", status: "Eu sunt glavniii", location:{city: "Chisinau", country: "Moldova"}, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSla7pOCzstVHKtrozQ3z1eCOZG458dVoae5DZOOgYQtDVnNY6q&usqp=CAU"},
+    //         {id: 3, followed: true, fullName: "Putin", status: "Azm esti cari", location:{city: "Moscow", country: "Russia"}, avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQg0xts6ni7PLCTMn2aTeTBnlvrL1nbUSfg9Y_qNS2vW62at1rv&usqp=CAU"}
+    //     ])
+    // }
+
+    return <div>
+        props.users.map((users) => <div >
         <span>
             <div>
-                <img src={users.avatar} className={style.img__avatar}/>
+                <img src={users.photos.small != null ? users.photos.small : sparePhoto} className={style.img__avatar}/>
             </div>
             <div>
                 {users.followed
@@ -26,19 +34,20 @@ let Users = (props) => {
         <span>
             <span>
                 <div>
-                    {users.fullName}
+                    {users.name}
                 </div>
                 <div>
                     {users.status}
                 </div>
             </span>
             <span>
-                <div>{users.location.city}</div>
-                <div>{users.location.country}</div>
+                <div>{"users.location.city"}</div>
+                <div>{"users.location.country"}</div>
             </span>
         </span>
     </div>)
-    return <div>{users}</div>
+    </div>
+    // return <div>{users}</div>
 }
 
 export default Users;
