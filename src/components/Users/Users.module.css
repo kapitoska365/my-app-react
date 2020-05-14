@@ -4,3 +4,7 @@
     height: 50px;
     padding: 4px;
 }
+
+.selectedPage{
+    background-color: red;
+}

@@ -1,14 +1,18 @@
 import React from "react";
 import style from "./Users.module.css"
-import * as axios from "axios";
 import  sparePhoto from "./../../assets/images/sparePhoto.jpeg";
 
 
 let Users = (props) => {
 
-    axios.get("https://social-network.samuraijs.com/api/1.0/users").then( response => {
-        props.setUsers(response.data.items);
-    });
+    let numberOfButtons = Math.ceil(props.totalUsersCount / props.pageSize);
+
+    let pages = [];
+
+
+    for(let i = 1; i <= numberOfButtons; i++){
+        pages.push(i);
+    }
 
     // if(props.users.length === 0){
     //     props.setUsers( [
@@ -19,34 +23,71 @@ let Users = (props) => {
     // }
 
     return <div>
-        props.users.map((users) => <div >
-        <span>
-            <div>
-                <img src={users.photos.small != null ? users.photos.small : sparePhoto} className={style.img__avatar}/>
-            </div>
-            <div>
-                {users.followed
-                    ? <button onClick={() => {props.unfollow(users.id)}}>Unfollow</button>
-                    : <button onClick={() => {props.follow(users.id)} }>Follow</button>
-                }
-            </div>
-        </span>
-        <span>
-            <span>
-                <div>
-                    {users.name}
-                </div>
-                <div>
-                    {users.status}
-                </div>
-            </span>
-            <span>
-                <div>{"users.location.city"}</div>
-                <div>{"users.location.country"}</div>
-            </span>
-        </span>
-    </div>)
+        <div>
+            {
+                pages.map( page => {
+                    return <button onClick={() => {props.changePager(page)}} className={props.currentPage === page && style.selectedPage}>{page}</button>
+            })}
+        </div>
+        {
+            props.users.map((users) => <div >
+                    <span>
+                        <div>
+                            <img src={users.photos.small != null ? users.photos.small : sparePhoto} className={style.img__avatar}/>
+                        </div>
+                        <div>
+                            {users.followed
+                                ? <button onClick={() => {props.unfollow(users.id)}}>Unfollow</button>
+                                : <button onClick={() => {props.follow(users.id)} }>Follow</button>
+                            }
+                        </div>
+                    </span>
+                <span>
+                        <span>
+                            <div>
+                                {users.name}
+                            </div>
+                            <div>
+                                {users.status}
+                            </div>
+                        </span>
+                        <span>
+                            <div>{"users.location.city"}</div>
+                            <div>{"users.location.country"}</div>
+                        </span>
+                    </span>
+            </div>)
+        }
     </div>
+    //<div>
+    //     props.users.map((users) => <div >
+    //     <span>
+    //         <div>
+    //             <img src={users.photos.small != null ? users.photos.small : sparePhoto} className={style.img__avatar}/>
+    //         </div>
+    //         <div>
+    //             {users.followed
+    //                 ? <button onClick={() => {props.unfollow(users.id)}}>Unfollow</button>
+    //                 : <button onClick={() => {props.follow(users.id)} }>Follow</button>
+    //             }
+    //         </div>
+    //     </span>
+    //     <span>
+    //         <span>
+    //             <div>
+    //                 {users.name}
+    //             </div>
+    //             <div>
+    //                 {users.status}
+    //             </div>
+    //         </span>
+    //         <span>
+    //             <div>{"users.location.city"}</div>
+    //             <div>{"users.location.country"}</div>
+    //         </span>
+    //     </span>
+    // </div>)
+    // </div>
     // return <div>{users}</div>
 }
 
