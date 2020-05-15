@@ -12,6 +12,7 @@ let Users = (props) => {
 
     for(let i = 1; i <= numberOfButtons; i++){
         pages.push(i);
+        if (pages.length === 10) break;
     }
 
     // if(props.users.length === 0){
