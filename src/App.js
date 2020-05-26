@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-import Header from "./components/header/Header";
-import Profile from "./components/Profile/Profile";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import {BrowserRouter, Route} from "react-router-dom";
 import News from "./components/news/News";
@@ -10,19 +8,21 @@ import Settings from "./components/settings/Settings";
 import FriendsContainer from "./components/friends/FriendsContainer";
 import NavContainer from "./components/nav/NavContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/header/HeaderContainer";
 
 
 const App = () => {
   return (
       <BrowserRouter>
         <div className="app-wrapper">
-          <Header/>
+          <HeaderContainer/>
           <NavContainer />
           <div className="app-wrapper-container">
 
               <Route path="/dialog" render={() => <DialogsContainer/>}/>
 
-              <Route path="/profile" render={() => <Profile/>}/>
+              <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
 
               <Route path="/news" component={News}/>
 

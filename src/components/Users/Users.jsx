@@ -1,6 +1,8 @@
 import React from "react";
 import style from "./Users.module.css"
 import  sparePhoto from "./../../assets/images/sparePhoto.jpeg";
+import {NavLink} from "react-router-dom";
+import {UserAPI} from "../../api/api";
 
 
 let Users = (props) => {
@@ -34,12 +36,34 @@ let Users = (props) => {
             props.users.map((users) => <div >
                     <span>
                         <div>
-                            <img src={users.photos.small != null ? users.photos.small : sparePhoto} className={style.img__avatar}/>
+                            <NavLink to={'/profile/' + users.id}>
+                                <img src={users.photos.small != null ? users.photos.small : sparePhoto} className={style.img__avatar}/>
+                            </NavLink>
                         </div>
                         <div>
                             {users.followed
-                                ? <button onClick={() => {props.unfollow(users.id)}}>Unfollow</button>
-                                : <button onClick={() => {props.follow(users.id)} }>Follow</button>
+
+                                ? <button disabled={props.followInProgress.some(userID => userID === users.id)} onClick={() => {
+                                    props.toogleInProgress(true, users.id);
+                                    UserAPI.unfollowUser(users.id)
+                                    .then( data => {
+                                        if(data.resultCode === 0){
+                                            props.unfollow(users.id)
+                                        }
+                                        props.toogleInProgress(false, users.id);
+                                    })
+                                }}>Unfollow</button>
+
+                                : <button disabled={props.followInProgress.some(userID => userID === users.id)} onClick={() => {
+                                    props.toogleInProgress(true, users.id);
+                                    UserAPI.followUser(users.id)
+                                    .then( data => {
+                                        if(data.resultCode === 0){
+                                            props.follow(users.id)
+                                        }
+                                        props.toogleInProgress(false, users.id);
+                                    })
+                                }}>Follow</button>
                             }
                         </div>
                     </span>

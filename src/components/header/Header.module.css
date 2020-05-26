@@ -14,5 +14,15 @@
     margin-left: 30px;
 }
 
+.loginBlock{
+    margin-left: auto;
+    padding-right: 5px;
+}
+
+.loginBlock  a{
+    color: white;
+    text-decoration: none;
+}
+
 
 
